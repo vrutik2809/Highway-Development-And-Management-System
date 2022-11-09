@@ -7,7 +7,7 @@ export default (props) => {
   return (
     <div>
       <Navbar />
-      <div className={container}>
+      <div className={container} style={{marginTop:"70px"}}>
         <h1>This is test</h1>
       </div>
       <Footer />

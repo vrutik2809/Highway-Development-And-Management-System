@@ -15,7 +15,7 @@ export default (props) => {
             <Header
                 brand="Highway Development And Management System"
                 rightLinks={<HeaderLinks />}
-                // fixed
+                fixed
                 color="primary"
                 changeColorOnScroll={{
                     height: 400,
