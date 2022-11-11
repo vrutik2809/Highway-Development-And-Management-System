@@ -1,0 +1,5 @@
+// dump only schema
+pg_dump -U postgres -h localhost -d highway_construction -s -f V:\Temp\highway_construction_dump.sql
+
+// dump database with data
+pg_dump -U postgres -h localhost -d highway_construction -f V:\Temp\highway_construction_dump_data.sql
