@@ -682,5 +682,3 @@ const mapHighwaysToLocationsAndStates = () => {
     const state_highway_highway_id_str = state_highway_highway_id.join('\n');
     console.log(state_highway_highway_id_str);
 }
-
-mapHighwaysToLocationsAndStates();

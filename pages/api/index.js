@@ -1,3 +1,5 @@
+import * as controller from '../../app/controllers/index.controller';
+
 export default async (req, res) => {
-    res.status(200).json({ msg: 'connected' })
+    await controller.getAllHighways(req, res);
 }

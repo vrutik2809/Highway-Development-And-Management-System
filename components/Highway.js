@@ -15,37 +15,32 @@ export default function Highway(props) {
     const classes = useStyles();
     const {data , ...rest} = props;
     return (
-        <>
-            <Card>
-                <CardHeader color="primary">
-                    <h4>{data.type} {data.number}</h4>
-                </CardHeader>
-                <CardBody>
-                    <Link href={data.img_href}>
-                        <a target="_blank">
-                            <img src={data.img_src} alt="Highway" />
-                        </a>
-                    </Link>
-                    <p>Length: {data.length} km</p>
-                    <p>Start Location: {data.start_location}</p>
-                    <p>End Location: {data.end_location}</p>
-                </CardBody>
-                <CardFooter>
-                    <p>Footer</p>
-                </CardFooter>
-            </Card>
-        </>
+        <Card>
+            <CardHeader color="primary">
+                <h4>{data.type} {data.id}</h4>
+            </CardHeader>
+            <CardBody>
+                <p>Length: {data.length} km</p>
+                <p>Start Location: {data.start_location}</p>
+                <p>End Location: {data.end_location}</p>
+                <p>Build Year: {data.build_year}</p>
+                <p>cost: &#8377;{data.cost} cr</p>
+            </CardBody>
+            <CardFooter>
+                <p>Footer</p>
+            </CardFooter>
+        </Card>
     );
 }
 
 Highway.propTypes = {
     data: PropTypes.shape({
         type: PropTypes.string,
-        number: PropTypes.number,
+        id: PropTypes.number,
         length: PropTypes.number,
         start_location: PropTypes.string,
         end_location: PropTypes.string,
-        img_src: PropTypes.string,
-        img_href: PropTypes.string,
+        build_year: PropTypes.number,
+        cost: PropTypes.number,
     }).isRequired
 }

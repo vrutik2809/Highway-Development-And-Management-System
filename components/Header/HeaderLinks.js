@@ -20,7 +20,16 @@ export default function HeaderLinks(props) {
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <Button
-          href="#"
+          href="/highways"
+          color="transparent"
+          className={classes.navLink}
+        >
+          Highways
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="/notices"
           color="transparent"
           className={classes.navLink}
         >
@@ -29,7 +38,7 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="#"
+          href="/tenders"
           color="transparent"
           className={classes.navLink}
         >
