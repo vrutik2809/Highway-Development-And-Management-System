@@ -45,7 +45,6 @@ export default (props) => {
             <Navbar />
             <Container className={classes.boxContainer}>
                 <Box sx={sx}>
-                    {isLoading && <CircularProgress />}
                     {tenders && <DataGrid
                         rows={tenders}
                         columns={[
