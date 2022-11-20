@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "../../styles/jss/nextjs-material-kit/pages/highwaysPage.js";
 
+import axiosInstance from "../../utils/Axios";
+
 const useStyles = makeStyles(styles);
 
 export default (props) => {
@@ -19,16 +21,19 @@ export default (props) => {
   useEffect(() => {
     const abortController = new AbortController();
     const getHighways = async () => {
-      const res = await fetch("/api", {
-        signal: abortController.signal
-      });
-      const { data } = await res.json();
-      setHighways(data);
-      setIsLoading(false);
+      try {
+        const promise = axiosInstance.get("/highways", {
+          signal: abortController.signal,
+        });
+        const { data } = await promise;
+        setHighways(data.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getHighways();
     return () => {
-      console.log('fetch aborted');
       abortController.abort();
     }
   }, []);

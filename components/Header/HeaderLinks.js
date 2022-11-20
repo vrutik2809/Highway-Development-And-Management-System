@@ -10,6 +10,9 @@ import ListItem from "@material-ui/core/ListItem";
 // core components
 import Button from "/components/CustomButtons/Button.js";
 
+import AddNoticeVisibility from "../Privates/AddNoticeVisibility";
+import ProposeTenderVisibility from "../Privates/ProposeTenderVisibility";
+
 import styles from "/styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -44,6 +47,28 @@ export default function HeaderLinks(props) {
         >
           Tenders
         </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <AddNoticeVisibility>
+          <Button
+            href="/notices/add"
+            color="transparent"
+            className={classes.navLink}
+          >
+            Add Notice
+          </Button>
+        </AddNoticeVisibility>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <ProposeTenderVisibility>
+          <Button
+            href="/tenders/propose"
+            color="transparent"
+            className={classes.navLink}
+          >
+            Propose Tender
+          </Button>
+        </ProposeTenderVisibility>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button

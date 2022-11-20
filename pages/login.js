@@ -23,6 +23,9 @@ import styles from "/styles/jss/nextjs-material-kit/pages/loginPage.js";
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 
+import axiosInstance from "../utils/Axios";
+
+
 const useStyles = makeStyles(styles);
 
 export default (props) => {
@@ -34,17 +37,23 @@ export default (props) => {
   const { ...rest } = props;
   const router = useRouter();
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = async (data) =>{
-    const res = await fetch('/api/notices', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    console.log(await res.json())
-    router.push('/')
-  } ;
+  const onSubmit = async (body) => {
+    try {
+      console.log(body);
+      const promise = axiosInstance.post('/auth/login',body,{
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const { data } = await promise;
+      sessionStorage.setItem('user_id', data.data.id);
+      sessionStorage.setItem('user_type', data.data.type);
+      router.push('/');
+    } catch (error) {
+      console.log(error);
+      alert("Error logging in please try again");
+    }
+  };
   return (
     <div>
       <Navbar />

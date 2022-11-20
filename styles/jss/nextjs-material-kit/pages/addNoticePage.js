@@ -1,9 +1,10 @@
 import { container } from "/styles/jss/nextjs-material-kit.js";
 
-const indexStyle = {
-    gridContainer: {
+const addNoticePageStyle = {
+    container: {
         ...container,
         marginTop: "120px",
     }
 }
-export default indexStyle;
+
+export default addNoticePageStyle;

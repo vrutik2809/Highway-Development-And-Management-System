@@ -25,3 +25,12 @@ export const getAllTenders = async (req, res) => {
         return res.status(500).json({ msg: 'server error' });
     }
 }
+
+export const createTender = async (req, res) => {
+    try {
+        return res.status(200).json({ msg: 'success' });       
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ msg: 'server error' });
+    }
+}

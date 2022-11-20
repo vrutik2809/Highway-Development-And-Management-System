@@ -3,7 +3,8 @@ import { container } from "../../nextjs-material-kit";
 const tenderStyle = {
     boxContainer: {
         ...container,
-        marginTop: "90px",
+        marginTop: "120px",
+        marginBottom: "5px",
     },
 }
 export default tenderStyle;
