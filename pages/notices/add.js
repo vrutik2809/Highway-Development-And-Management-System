@@ -26,9 +26,9 @@ export default (props) => {
     const classes = useStyles();
     const { register, handleSubmit, reset, formState} = useForm();
     const router = useRouter();
-    const onSubmit = async (data) => {
+    const onSubmit = async (body) => {
         try {
-            const promise = axiosInstance.post('/notices', data, {
+            const promise = axiosInstance.post('/notices', body, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

@@ -28,7 +28,13 @@ export const getAllTenders = async (req, res) => {
 
 export const createTender = async (req, res) => {
     try {
-        return res.status(200).json({ msg: 'success' });       
+        const client = await pool.connect();
+        const result = await client.query(`
+            insert into tenders (description,proposed_by_company_id,proposed_for_highway_id)
+            values ('${req.body.description}',${req.body.proposed_by_company_id},${req.body.proposed_for_highway_id});
+        `);
+        client.release();
+        return res.status(200).json({ msg: 'success' , data: result.rows});
     } catch (error) {
         console.log(error);
         return res.status(500).json({ msg: 'server error' });

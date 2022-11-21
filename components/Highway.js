@@ -26,9 +26,6 @@ export default function Highway(props) {
                 <p>Build Year: {data.build_year}</p>
                 <p>cost: &#8377;{data.cost} cr</p>
             </CardBody>
-            <CardFooter>
-                <p>Footer</p>
-            </CardFooter>
         </Card>
     );
 }

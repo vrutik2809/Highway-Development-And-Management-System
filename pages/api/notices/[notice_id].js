@@ -14,4 +14,12 @@ export default async (req, res) => {
         }
         await controller.deleteNotice(req, res);
     }
+    else if (req.method === 'PUT') {
+        const sts = await auth(req, res);
+        if (sts !== flags.SUCCESS) {
+            if(sts === flags.FAIL) return res.status(401).json({ msg: 'unauthorized' });
+            else return res.status(500).json({ msg: 'server error' });
+        }
+        await controller.updateNotice(req, res);
+    }
 }

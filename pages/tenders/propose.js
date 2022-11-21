@@ -39,6 +39,7 @@ export default (props) => {
                 }
             });
             const { data } = await promise;
+            console.log(data.data);
         } catch (error) {
             console.log(error);
             alert('Error in proposing tender');
@@ -99,19 +100,6 @@ export default (props) => {
                                             ))}
                                         </Select>
                                     </FormControl>
-                                </CardBody>
-                                <CardBody>
-                                    <CustomInput
-                                        labelText="Title"
-                                        id="title"
-                                        formControlProps={{
-                                            fullWidth: true
-                                        }}
-                                        inputProps={{
-                                            type: "text",
-                                            ...register("title", { required: true })
-                                        }}
-                                    />
                                 </CardBody>
                                 <CardBody>
                                     <CustomInput
