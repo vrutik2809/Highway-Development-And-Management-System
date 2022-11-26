@@ -46,8 +46,8 @@ export default (props) => {
         width: '100%'
     }
     const columns = [
-        { field: 'id', headerName: 'Notice ID', width: 70 },
-        { field: 'description', headerName: 'Description', width: 500 ,editable: true},
+        { field: 'id', headerName: 'Notice ID', width: 100, headerAlign: 'center', align: 'center' },
+        { field: 'description', headerName: 'Description', width: 500 ,editable: true, headerAlign: 'center', align: 'left'},
         {
             field: 'actions',
             type: 'actions',
@@ -104,6 +104,16 @@ export default (props) => {
                         pageSize={10}
                         loading={isLoading}
                         autoHeight={true}
+                        sx={{
+                            boxShadow: 2,
+                            '& .MuiDataGrid-row:hover': {
+                                boxShadow: 2,
+                                backgroundColor: 'lightgray'
+                            },
+                            '& .MuiDataGrid-row:nth-child(even)': {
+                                backgroundColor: '#f5f5f5',
+                            },
+                        }}
                     />}
                 </Box>
             </Container>

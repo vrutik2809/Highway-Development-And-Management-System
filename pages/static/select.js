@@ -50,6 +50,8 @@ export default (props) => {
                     field: column.column_name,
                     headerName: column.column_name,
                     width: 200,
+                    headerAlign: 'center',
+                    align: `${column.column_name === 'description' ? 'left' : 'center'}`,
                 }
             }));
         } catch (error) {
@@ -101,6 +103,16 @@ export default (props) => {
                         columns={tableColumns}
                         pageSize={10}
                         autoHeight={true}
+                        sx={{
+                            boxShadow: 2,
+                            '& .MuiDataGrid-row:hover': {
+                                boxShadow: 2,
+                                backgroundColor: 'lightgray'
+                            },
+                            '& .MuiDataGrid-row:nth-child(even)':{
+                                backgroundColor: '#f5f5f5',
+                            },
+                        }}
                     />}   
                 </Box>
             </Container>

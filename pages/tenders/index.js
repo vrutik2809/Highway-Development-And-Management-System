@@ -48,14 +48,24 @@ export default (props) => {
                     {tenders && <DataGrid
                         rows={tenders}
                         columns={[
-                            { field: 'id', headerName: 'Tender ID', width: 80 },
-                            { field: 'proposed_by', headerName: 'Proposed By Company', width: 200 },
-                            { field: 'proposed_for', headerName: 'Proposed for Highway id', width: 200 },
-                            { field: 'description', headerName: 'Description', width: 300 },
+                            { field: 'id', headerName: 'Tender ID', width: 80, headerAlign: 'center', align: 'center' },
+                            { field: 'proposed_by', headerName: 'Proposed By Company', width: 200, headerAlign: 'center', align: 'center' },
+                            { field: 'proposed_for', headerName: 'Proposed for Highway id', width: 200, headerAlign: 'center', align: 'center' },
+                            { field: 'description', headerName: 'Description', width: 300 , headerAlign: 'center', align: 'left'},
                         ]}
                         pageSize={10}
                         loading={isLoading}
                         autoHeight={true}
+                        sx={{
+                            boxShadow: 2,
+                            '& .MuiDataGrid-row:hover': {
+                                boxShadow: 2,
+                                backgroundColor: 'lightgray'
+                            },
+                            '& .MuiDataGrid-row:nth-child(even)': {
+                                backgroundColor: '#f5f5f5',
+                            },
+                        }}
                     />}
                 </Box>
             </Container>
